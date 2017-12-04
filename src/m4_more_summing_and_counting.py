@@ -250,30 +250,32 @@ def run_test_count_cosines_from():
     # TO DO: 6 (continued).
     # Below this comment, add 5 more test cases of your own choosing.
     # ------------------------------------------------------------------
-    expected = 2
+    expected = 3
     answer = count_cosines_from(-3, 4, .5)
-    print('Test 1 expected:', expected)
+    print('Test 2 expected:', expected)
     print('       actual:  ', answer)
 
     expected = 3
-    answer = count_cosines_from(-10, -7, 0.29)
-    print('Test 1 expected:', expected)
+    answer = count_cosines_from(3, 9, 0.27)
+    print('Test 3 expected:', expected)
     print('       actual:  ', answer)
 
-    expected = 1
+    expected = 2
     answer = count_cosines_from(5, 9, 0.75)
-    print('Test 1 expected:', expected)
+    print('Test 4 expected:', expected)
     print('       actual:  ', answer)
 
     expected = 6
     answer = count_cosines_from(-5, 2, -.66)
-    print('Test 1 expected:', expected)
+    print('Test 5 expected:', expected)
     print('       actual:  ', answer)
 
     expected = 2
     answer = count_cosines_from(4,6,-.89)
-    print('Test 1 expected:', expected)
+    print('Test 6 expected:', expected)
     print('       actual:  ', answer)
+
+
 def count_cosines_from(m, n, x):
     """
     What comes in:  The three arguments are non-negative integers
@@ -294,7 +296,7 @@ def count_cosines_from(m, n, x):
       -- count_cosines_from(4, 8, -0.5)  returns  4
     """
     # ------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # Done: 7. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     # IMPORTANT: As in previous problems in this session,
@@ -302,13 +304,16 @@ def count_cosines_from(m, n, x):
     #   of the RANGE expression, if you happen to know them.
     # ------------------------------------------------------------------
     count = 0
-    for x in range(n-m):
+    for k in range(n-m):
+        if math.cos(k+m)>x:
+            count =  count +1
+    return count
 
 
 def run_test_sum_unit_fractions_from():
     """ Tests the   sum_unit_fractions_from   function. """
     # ------------------------------------------------------------------
-    # TODO: 8. Implement this TEST function.
+    # Done: 8. Implement this TEST function.
     #   It TESTS the  sum_unit_fractions_from  function defined below.
     #   Include at least **   3   ** tests (we wrote one for you).
     # Use the same 4-step process as for previous TEST functions.
@@ -328,6 +333,17 @@ def run_test_sum_unit_fractions_from():
     # TO DO: 8 (continued).
     # Below this comment, add 2 more test cases of your own choosing.
     # ------------------------------------------------------------------
+    # Test 2:
+    expected = 2.023306  # This is APPROXIMATELY the correct answer.
+    answer = sum_unit_fractions_from(20, 147)
+    print('Test 1 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
+
+    # Test 3:
+    expected = 4.866215  # This is APPROXIMATELY the correct answer.
+    answer = sum_unit_fractions_from(12, 1493)
+    print('Test 1 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
 
 
 def sum_unit_fractions_from(m, n):
@@ -350,7 +366,11 @@ def sum_unit_fractions_from(m, n):
     #   you must NOT use the 2 or 3-parameter versions
     #   of the RANGE expression, if you happen to know them.
     # ------------------------------------------------------------------
+    sum_frac = 0
+    for x in  range(n-m+1):
+        sum_frac= sum_frac + 1/(m+x)
 
+    return sum_frac
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
