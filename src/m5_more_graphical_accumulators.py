@@ -28,7 +28,7 @@ import rosegraphics as rg
 def main():
     """ Calls the   TEST   functions in this module. """
     run_test_draw_squares_from_circle()
-  #  run_test_draw_circles_from_rectangle()
+    run_test_draw_circles_from_rectangle()
    # run_test_draw_lines_from_rectangles()
 
 
@@ -98,7 +98,7 @@ def draw_squares_from_circle(n, circle, window):
       :type window: rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # Done : 2. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
@@ -149,8 +149,21 @@ def run_test_draw_circles_from_rectangle():
     #   Follow the same form as the example in a previous problem.
     ####################################################################
     # ------------------------------------------------------------------
+    #Test 1
+    window1 = rg.RoseWindow(500,500)
+    rectangle1= rg.Rectangle(rg.Point(150,150),rg.Point(175,175))
+    draw_circles_from_rectangle(5,8,rectangle1,window1)
 
+    rectangle11 =rg.Rectangle(rg.Point(450,450),rg.Point(495,495))
+    draw_circles_from_rectangle(10,15,rectangle11,window1)
 
+    window1.close_on_mouse_click()
+    #Test 2
+    window2 = rg.RoseWindow(500,500)
+    rectangle2 = rg.Rectangle(rg.Point(385,362),rg.Point(395,407))
+    draw_circles_from_rectangle(11,8,rectangle2,window2)
+
+    window2.close_on_mouse_click()
 def draw_circles_from_rectangle(m, n, rectangle, window):
     """
     What comes in:  Four arguments:
@@ -204,6 +217,26 @@ def draw_circles_from_rectangle(m, n, rectangle, window):
     #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
     ####################################################################
     # ------------------------------------------------------------------
+    width = rectangle.get_width()
+    height = rectangle.get_height()
+    center_Rectangle = rectangle.get_center()
+    rectangle.attach_to(window)
+    window.render(.05)
+
+    for k in range (m):
+        center = rg.Point((center_Rectangle.x-width*(k+1)),
+                          center_Rectangle.y)
+        circle= rg.Circle(center,height/2)
+        circle.attach_to(window)
+        window.render(.05)
+    for k in range(n):
+        center = rg.Point((center_Rectangle.x),
+                          center_Rectangle.y-height*(k+1))
+        circle = rg.Circle(center, width / 2)
+        circle.attach_to(window)
+        window.render(.05)
+
+
 
 
 def run_test_draw_lines_from_rectangles():
