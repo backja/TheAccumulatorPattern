@@ -118,7 +118,6 @@ def draw_squares_from_circle(n, circle, window):
     start_point =rg.Point( center.x - radius, center.y -radius)
     end_point= rg.Point( center.x+ radius, center.y + radius)
 
-    side=2*radius
     for x in range(n):
         rectangle = rg.Rectangle(start_point,end_point)
         rectangle.attach_to(window)
@@ -137,7 +136,7 @@ def run_test_draw_circles_from_rectangle():
     print('--------------------------------------------------')
 
     # ------------------------------------------------------------------
-    # TODO: 3. Implement this TEST function.
+    # Done: 3. Implement this TEST function.
     #   It TESTS the  draw_circles_from_rectangle  function
     #   defined below.  Include at least **   3   ** tests, of which
     #      ***  at least TWO tests are on ONE window and
