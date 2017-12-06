@@ -160,7 +160,7 @@ def run_test_draw_circles_from_rectangle():
     #Test 2
     window2 = rg.RoseWindow(500,500)
     rectangle2 = rg.Rectangle(rg.Point(385,362),rg.Point(395,407))
-    draw_circles_from_rectangle(11,8,rectangle2,window2)
+    draw_circles_from_rectangle(5,11,rectangle2,window2)
 
     window2.close_on_mouse_click()
 def draw_circles_from_rectangle(m, n, rectangle, window):
